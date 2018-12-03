@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang='zh-cn'>
+<head>
+<meta charset='UTF-8'>
+<meta name="keywords" content="Mojang,VPS,代理,沙盒游戏,生存,创造,空岛,小游戏,多人联机,官方下载,梦里幽境,材质包,3D沙盒游戏,我的世界,Minecraft,Minecraft中国,Minecraft私服,Minecraft官方,Minecraft正版,Minecraft免费,Minecraft梦里幽境,Minecraft官网,Minecraft下载,Minecraft手游,MinecraftPE,Minecraft我的世界,我的世界游戏,我的世界中国,我的世界中国版,MCBBS,我的世界中文版,我的世界私服,我的世界官方,我的世界正版,我的世界免费,我的世界梦里幽境,我的世界官网,我的世界下载,我的世界游戏下载,我的世界手游,我的世界游戏,我的世界网页,我的世界下载客户端,我的世界正式版,我的世界中文下载,我的世界官方网址,我的世界官方下载,我的世界中文版,我的世界官方,我的世界minecraft,我的世界官网注册,我的世界网址,我的世界电脑版,我的世界新手注册,我的世界账号注册,我的世界官方平台,我的世界手机版,我的世界下载,我的世界官网,我的世界正版,我的世界平台,我的世界pc游戏,我的世界中国版,我的世界,我的世界中国版pc,我的世界单机版,我的世界版本配置,我的世界测试版,我的世界官方链接,我的世界中国公测,我的世界下载站,我的世界方块,我的世界客户端,我的世界二维码,我的世界国际版,我的世界官方网页地址,我的世界二维码下载,我的世界官网下载,我的世界注册,我的世界官方信息,我的世界客户端下载平台,我的世界扫码下载,我的世界微软版,我的世界下载链接,我的世界梦里幽境官方二维码,我的世界梦里幽境,我的世界梦里幽境官网下载地址描述">
+<meta name="description" content="我的世界梦里幽境,简单温馨养老生存服,空岛服,创造服...更多精彩期待有你." >
+<meta name="author" content="梦里幽境" >
+<meta name="copyright" content="梦里幽境.">
+<title>「梦里幽境」图床工具</title>
+<link rel="shortcut icon" href="images/mcfenlogo.png">
+<link rel='stylesheet' href="mcfen/css/normalize.min.css" tppabs="https://cdn.bootcss.com/normalize/5.0.0/normalize.min.css">
+<script src="mcfen/js/jquery.min.js" tppabs="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+<style>
+html,body {height: 100%;margin: 0;padding: 0;}body {font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;align-items: center;display: flex;}a{text-decoration:none;}#container {max-width: 400px;flex-basis: 100%;margin: 0 auto;background: #FFF;border-radius: 10px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);overflow: hidden;}#container #hero-img {width: 100%;height: 200px;background: #007bff;}#container #profile-img {width: 160px;height: 160px;margin: -80px auto 0 auto;}#container #profile-img img {width: 100%;background: #FFF;border-radius: 50%;}#container #content {text-align: center;width: 320px;margin: 0 auto;padding: 0 0 50px 0;}#container #content h1 {font-size: 29px;font-weight: 500;margin: 30px 0 0 0;}#container #content p {font-size: 18px;font-weight: 400;line-height: 1.4;color: #666;margin: 15px 0 40px 0;}#container #content a {color: #CCC;font-size: 14px;margin: 0 10px;transition: color .3s ease-in-out;-webkit-transition: color .3s ease-in-out;line-height: 40px;}#container #content a:hover {color: #007bff;}.btn{background: none repeat scroll 0 0 #1BA1E2; border: 0 none; border-radius: 2px; color: #FFFFFF !important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px;  padding: 6px 10%;}.btn:hover,.yanshibtn:hover{background: none repeat scroll 0 0 #9B59B6; border: 0 none; border-radius: 2px; color: #FFFFFF!important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px; padding: 8px 10%;}
+.imgType{display: none;}
+#images img{width: 100%}
+#imgurl input{width: 100%}
+#imgurl,#progress{display: none;}
+
+@-webkit-keyframes rotation{
+from {-webkit-transform: rotate(0deg);}
+to {-webkit-transform: rotate(360deg);}
+}
+
+.Rotation{
+-webkit-transform: rotate(360deg);
+animation: rotation 3s linear infinite;
+-moz-animation: rotation 3s linear infinite;
+-webkit-animation: rotation 3s linear infinite;
+-o-animation: rotation 3s linear infinite;
+}
+
+.img{border-radius: 250px;}
+</style>
+</head>
+<body ondragstart="return false" onselectstart="return false" oncontextmenu="if(event.srcElement.type != 'text') return false">
+	<div id='container'>
+		
+		<div id='profile-img'>
+			<img src='' id="imgLoading" class="Rotation img" title=""/>
+		</div>
+		<div id='content'>
+			<div id="progress"><progress max="100" value="0" id="pg"></progress></div>
+			<a><img src="images/mcfen_260.png" alt="mcfen"></a><br>
+			<a>梦里幽境免费图床工具</a><br><br>
+			<p class="imgType" id="imgType"></p>
+			<form id="form1">
+			   
+				<a href='javascript:void(0)' id="SinaImg" onclick="update('sina')" class="btn btn-default" rel='nofollow'>新浪图床</a>
+				<a href='javascript:void(0)' id="sougouImg" onclick="update('sougou')" class="btn btn-default" rel='nofollow'>搜狗图床</a>
+				<input type="file" id="file" name="file" onchange="sc($('#imgType').attr('imgType'));" style="display:none" accept="image/*">
+			</form>
+			<div class="imgContent" id="imgContent">
+				<div id="images"></div>
+				<div id="imgurl">
+					<code>图片直连:</code>
+					<input onclick="oCopy(this)" value=""  id="Imgs_url">
+					<code>HTML代码:</code>
+					<input onclick="oCopy(this)" value=""  id="Imgs_html">
+				</div>
+			</div><br>
+		   
+
+	<a href="https://www.mcfen.net/" target="_blank"><span style="font-size:9px;">官网首页</span></a><span style="font-size:9px;">|</span><a href="https://map.mcfen.net/" target="_blank"><span style="font-size:9px;">
+	GPS地图</span></a><span style="font-size:9px;">|</span><a href="https://pay.mcfen.net/" target="_blank"><span style="font-size:9px;">
+	赞助支持</span></a><span style="font-size:9px;">|</span><a href="tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3132393835383238362C2274696D655374616D70223A313532373535393731327D0A"><span style="font-size:9px;">
+	联系我们</span></a><br>
+<a><span style="font-size:9px;">Copyright &copy; 2014-2019 我的世界「梦里幽境」群组服</span></a>
+
+		</div>
+	</div>
+</body>
+
+<!-- 梦里幽境送你一颗小红心 -->
+<script type="text/javascript" src="mcfen/js/love.js"></script>
+<script type="text/javascript">
+ function update(type){
+ 	$('#file').val('');
+ 	$('#imgType').attr({
+ 		imgType: type,
+ 	});
+ 	file.click();
+
+ }
+
+
+ function sc(type){
+ 	if(!type){return false;}
+ 	var animateimg = $("#file").val();
+ 	$('#pg').val('0');
+ 	var imgarr=animateimg.split('\\');
+ 	var myimg=imgarr[imgarr.length-1];
+ 	var houzui = myimg.lastIndexOf('.');
+ 	var ext = myimg.substring(houzui, myimg.length).toUpperCase();  
+ 	var file = $('#file').get(0).files[0];
+ 	if(!file){return false;}
+ 	var fileSize = file.size;
+
+ 	switch(type){
+ 		case 'sougou':
+ 		var maxSize = 2097152;
+ 		break;
+ 		case 'baidu':
+ 		var maxSize = 2097152;
+ 		break; 
+ 		case 'so':
+ 		var maxSize = 2097152; 
+ 		break;
+ 		case 'sina':
+ 		var maxSize = 10485760; 
+ 		break;
+ 		default:
+ 		var maxSize = 10485760; 
+ 	} 
+ 	if(ext !='.PNG' && ext !='.GIF' && ext !='.JPG' && ext !='.JPEG' && ext !='.BMP'){  
+ 		parent.alert('文件类型错误,请上传图片类型');return false;  
+ 	}else if(parseInt(fileSize) >= parseInt(maxSize)){  
+ 		parent.alert('上传的文件不能超过'+maxSize/1024/1024+'MB');return false;  
+ 	}else{
+ 		$('#imgLoading').attr('src','');
+ 		var data = new FormData($('#form1')[0]);  
+ 		var YoungxjApisToken = 'f07b711396f9a05bc7129c4507fb65c5';
+ 		switch(type){
+ 			case 'sougou':
+ 			var apiUrl = 'https://apis.yum6.cn/api/5bd7f16aa33d7';
+ 			break;
+ 			case 'baidu':
+ 			var apiUrl = 'https://apis.yum6.cn/api/5bd828881f92b'; 
+ 			break;
+ 			case 'so':
+ 			var apiUrl = 'https://apis.yum6.cn/api/5bd90750c3f77'; 
+ 			break;
+ 			case 'sina':
+ 			var apiUrl = 'https://apis.yum6.cn/api/5bd44dc94bcfc'; 
+ 			break;
+ 			default:
+ 			return false;
+ 		};
+ 		$('#progress').show();
+ 		$.ajax({
+ 			url: apiUrl+'?token='+YoungxjApisToken,   
+ 			type: 'POST',    
+ 			data: data,    
+ 			dataType: 'JSON', 
+ 			processData: false,    
+ 			contentType: false,
+ 			xhr: function(){
+ 				var xhr = $.ajaxSettings.xhr();
+ 				if(onprogress && xhr.upload) {
+ 					xhr.upload.addEventListener("progress" , onprogress, false);
+ 					return xhr;
+ 				}
+ 			}
+ 		}).done(function(ret){
+ 			if(ret['code']=='1'){
+
+ 				var img = '';var imgurl = '';
+ 				if(type!='sina'){var imgSrc = ret['data'];}else{var imgSrc = ret['data']['url'];}
+ 				img += '<img src="'+imgSrc+'" name="sinaimg" id="sinaimg">';
+ 				
+ 				$('#Imgs_url').val(imgSrc);
+ 				$('#Imgs_html').val('<img src="'+imgSrc+'"/>');
+ 				$('#images').html(img);$('#imgLoading').attr('src','');
+ 				$('#imgurl').show();
+ 				$('#progress').hide();  
+ 			}else{
+ 				$('#progress').hide();
+ 				$('#imgLoading').attr('src','');
+ 				parent.alert(ret['msg']);
+ 			}  
+ 			
+ 		});
+ 		return false;  
+ 	}    
+ }
+
+ function onprogress(evt){
+ 	var loaded = evt.loaded;
+ 	var tot = evt.total;
+ 	var per = Math.floor(100*loaded/tot);
+ 	$('#pg').val(per);
+
+ }
+ function oCopy(obj){
+ 	obj.select();
+ 	document.execCommand("Copy");
+ 	if (browserRedirect()) {alert('设备类型为手机，有一定几率复制失败！请查看剪切板是否成功复制');}
+ }
+
+ function browserRedirect(){
+ 	var sUserAgent = navigator.userAgent.toLowerCase();
+ 	var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
+ 	var bIsIphone = sUserAgent.match(/iphone os/i) == 'iphone os';
+ 	var bIsMidp = sUserAgent.match(/midp/i) == 'midp';
+ 	var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
+ 	var bIsUc = sUserAgent.match(/ucweb/i) == 'web';
+ 	var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
+ 	var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
+ 	var bIsAndroid = sUserAgent.match(/android/i) == 'android';
+ 	if(bIsIpad || bIsIphone || bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM || bIsAndroid ){
+ 		return 1;
+ 	}
+ };
+ $(document).ready(function(){
+ 	$('#imgLoading').click(function() {$("#imgContent").toggle();});
+ });
+</script>
+</html>
