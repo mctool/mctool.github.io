@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang='zh-cn'>
 <head>
@@ -9,8 +8,8 @@
 <meta name="copyright" content="梦里幽境.">
 <title>「梦里幽境」图床工具</title>
 <link rel="shortcut icon" href="images/mcfenlogo.png">
-<link rel='stylesheet' href="mcfen/css/normalize.min.css" tppabs="https://cdn.bootcss.com/normalize/5.0.0/normalize.min.css">
-<script src="mcfen/js/jquery.min.js" tppabs="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+<link rel='stylesheet' href='https://cdn.bootcss.com/normalize/5.0.0/normalize.min.css'>
+<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
 <style>
 html,body {height: 100%;margin: 0;padding: 0;}body {font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;align-items: center;display: flex;}a{text-decoration:none;}#container {max-width: 400px;flex-basis: 100%;margin: 0 auto;background: #FFF;border-radius: 10px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);-webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);overflow: hidden;}#container #hero-img {width: 100%;height: 200px;background: #007bff;}#container #profile-img {width: 160px;height: 160px;margin: -80px auto 0 auto;}#container #profile-img img {width: 100%;background: #FFF;border-radius: 50%;}#container #content {text-align: center;width: 320px;margin: 0 auto;padding: 0 0 50px 0;}#container #content h1 {font-size: 29px;font-weight: 500;margin: 30px 0 0 0;}#container #content p {font-size: 18px;font-weight: 400;line-height: 1.4;color: #666;margin: 15px 0 40px 0;}#container #content a {color: #CCC;font-size: 14px;margin: 0 10px;transition: color .3s ease-in-out;-webkit-transition: color .3s ease-in-out;line-height: 40px;}#container #content a:hover {color: #007bff;}.btn{background: none repeat scroll 0 0 #1BA1E2; border: 0 none; border-radius: 2px; color: #FFFFFF !important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px;  padding: 6px 10%;}.btn:hover,.yanshibtn:hover{background: none repeat scroll 0 0 #9B59B6; border: 0 none; border-radius: 2px; color: #FFFFFF!important; cursor: pointer; font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",Arial,Verdana,Tahoma,sans-serif; font-size: 14px; padding: 8px 10%;}
 .imgType{display: none;}
@@ -36,45 +35,53 @@ animation: rotation 3s linear infinite;
 </head>
 <body ondragstart="return false" onselectstart="return false" oncontextmenu="if(event.srcElement.type != 'text') return false">
 	<div id='container'>
-		
+		<div id='hero-img'>
+		</div>
 		<div id='profile-img'>
-			<img src='' id="imgLoading" class="Rotation img" title=""/>
+			<img src='images/mcfen.jpg' id="imgLoading" class="Rotation img" title="点击切换显示or隐藏上传结果"/>
 		</div>
 		<div id='content'>
+			<h3>梦里幽境免费图床工具</h3>
 			<div id="progress"><progress max="100" value="0" id="pg"></progress></div>
-			<a><img src="images/mcfen_260.png" alt="mcfen"></a><br>
-			<a>梦里幽境免费图床工具</a><br><br>
 			<p class="imgType" id="imgType"></p>
 			<form id="form1">
-			   
-				<a href='javascript:void(0)' id="SinaImg" onclick="update('sina')" class="btn btn-default" rel='nofollow'>新浪图床</a>
-				<a href='javascript:void(0)' id="sougouImg" onclick="update('sougou')" class="btn btn-default" rel='nofollow'>搜狗图床</a>
+				<a href='javascript:void(0)' id="baiduImg" onclick="update('baidu')" class="btn btn-default" rel='nofollow' title="支持透明图层,最大2M">百度图床</a><a href='javascript:void(0)' id="sougouImg" onclick="update('sougou')" class="btn btn-default" rel='nofollow' title="支持透明图层,最大2M">搜狗图床</a>
+				<a href='javascript:void(0)' id="SinaImg" onclick="update('sina')" class="btn btn-default" rel='nofollow' title="不支持透明图层,最大10M">新浪图床</a><a href='javascript:void(0)' id="soImg" onclick="update('so')" class="btn btn-default" rel='nofollow' title="支持透明图层(需手动改后缀为.png),最大2M">360 图床</a>
 				<input type="file" id="file" name="file" onchange="sc($('#imgType').attr('imgType'));" style="display:none" accept="image/*">
 			</form>
 			<div class="imgContent" id="imgContent">
 				<div id="images"></div>
 				<div id="imgurl">
-					<code>图片直连:</code>
+					<code>图片直链代码:</code>
 					<input onclick="oCopy(this)" value=""  id="Imgs_url">
-					<code>HTML代码:</code>
+					<code>论坛嵌入代码:</code>
+					<input onclick="oCopy(this)" value=""  id="Imgs_Ubb">
+					<code>网页嵌入代码:</code>
 					<input onclick="oCopy(this)" value=""  id="Imgs_html">
 				</div>
 			</div><br>
-		   
-
 	<a href="https://www.mcfen.net/" target="_blank"><span style="font-size:9px;">官网首页</span></a><span style="font-size:9px;">|</span><a href="https://map.mcfen.net/" target="_blank"><span style="font-size:9px;">
-	GPS地图</span></a><span style="font-size:9px;">|</span><a href="https://pay.mcfen.net/" target="_blank"><span style="font-size:9px;">
-	赞助支持</span></a><span style="font-size:9px;">|</span><a href="tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3132393835383238362C2274696D655374616D70223A313532373535393731327D0A"><span style="font-size:9px;">
+	GPS地图</span></a><span style="font-size:9px;">|</span><a href="https://pay.mcfen.net/dear_friends/" target="_blank"><span style="font-size:9px;">
+	捐助支持</span></a><span style="font-size:9px;">|</span><a href="tencent://groupwpa/?subcmd=all&param=7B2267726F757055696E223A3132393835383238362C2274696D655374616D70223A313532373535393731327D0A"><span style="font-size:9px;">
 	联系我们</span></a><br>
 <a><span style="font-size:9px;">Copyright &copy; 2014-2019 我的世界「梦里幽境」群组服</span></a>
 
+		
 		</div>
 	</div>
 </body>
-
 <!-- 梦里幽境送你一颗小红心 -->
-<script type="text/javascript" src="mcfen/js/love.js"></script>
+<script type="text/javascript" src="js/love.js"></script>
+
 <script type="text/javascript">
+/**
+ * @act      sina
+ * @version  1.2
+ * @author   youngxj
+ * @date     2018-11-17
+ * @url      https://www.youngxj.cn
+ */
+
  function update(type){
  	$('#file').val('');
  	$('#imgType').attr({
@@ -118,7 +125,7 @@ animation: rotation 3s linear infinite;
  	}else if(parseInt(fileSize) >= parseInt(maxSize)){  
  		parent.alert('上传的文件不能超过'+maxSize/1024/1024+'MB');return false;  
  	}else{
- 		$('#imgLoading').attr('src','');
+ 		$('#imgLoading').attr('src','images/mcfen-1.jpg');
  		var data = new FormData($('#form1')[0]);  
  		var YoungxjApisToken = 'f07b711396f9a05bc7129c4507fb65c5';
  		switch(type){
@@ -161,12 +168,14 @@ animation: rotation 3s linear infinite;
  				
  				$('#Imgs_url').val(imgSrc);
  				$('#Imgs_html').val('<img src="'+imgSrc+'"/>');
- 				$('#images').html(img);$('#imgLoading').attr('src','');
+ 				$('#Imgs_Ubb').val('[img]'+imgSrc+'[/img]');
+ 				$('#Imgs_markdown').val('![]('+imgSrc+')');
+ 				$('#images').html(img);$('#imgLoading').attr('src','images/mcfen-2.jpg');
  				$('#imgurl').show();
  				$('#progress').hide();  
  			}else{
  				$('#progress').hide();
- 				$('#imgLoading').attr('src','');
+ 				$('#imgLoading').attr('src','images/mcfen-3.jpg');
  				parent.alert(ret['msg']);
  			}  
  			
