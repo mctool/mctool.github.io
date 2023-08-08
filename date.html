@@ -11,9 +11,10 @@
 <head>
 <link id="bootstrap_221" rel="stylesheet" type="text/css" class="library" href="css/bootstrap.min.css">
 <script id="jquery_172" type="text/javascript" class="library" src="mcfen/jquery-1.7.2.min.js"></script>
-</head>
+  <link rel="stylesheet" type="text/css" href="sinaimg/css/bootstrap.min.css" tppabs="http://tools.yum6.cn/css/bootstrap.min.css">
 
-<body >
+</head>
+<body>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 <div class="navbar-inner">
@@ -37,9 +38,7 @@
 <li class="">
 <a href="minimsg.html" title="高版本客户端颜色代码生成器" target="_blank">MiniMessage</a>
 </li>
-<li class="">
-<a href="chinesize.html">翻译辅助</a>
-</li>
+
 </ul>
 </div>
 </div>
@@ -47,44 +46,101 @@
 </div>
 <header class="jumbotron subhead" id="overview">
 <div class="container">
-<h1>Unicode转码</h1>
-<p class="lead">转换Unicode编码.</p>
+<h1>日期计算</h1>
+<p class="lead">快捷计算指定时间数据.</p>
 </div>
 </header>
-<div class="container">
-<p></p>
-<div class="row">
-<div class="span12 row">
-<textarea id="src" class="codearea span12"  rows="12" placeholder="未编码的正常可视数据"></textarea>
-</div>
-</div>
-<div class="row-fluid">
-<div class="span12 row">
-<div class="span2">
-<button type="button" class="btn span12" id="conv-i">编码⇘⇘⇘</button>
-</div>
-<div class="span2">
-<label class="checkbox cbox">
-<input id="conf-ascii" type="checkbox"> 编码ASCII字符
-</label>
-</div>
-<div class="span6">
-<label class="checkbox cbox">
-<input id="conf-auto" type="checkbox" checked> 实时刷新
-</label>
-</div>
-<div class="span2">
-<button type="button" class="btn span12" id="conv-o">⇖⇖⇖解码&nbsp;</button>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="span12 row">
-<textarea id="out" class="codearea span12" rows="8" placeholder="Unicode编码数据【将数据粘贴此处进行正常化解码】"></textarea>
-</div>
+<div class="margin-left:1rem;margin-top:1rem;container">
+
+
+<script type="text/javascript" src="https://time.org.cn/riqi/base.js"></script>
+<script type="text/javascript" src="https://time.org.cn/riqi/calc.1.3.js"></script>
+
+
+<div class="container clearfix">
+	<div class="panel panel-default">
+		<div class="panel-heading">【计算日期差】<small class="text-capitalize">by: mcfen.net</small></div>
+		<div class="panel-body">
+<br>
+<b>【计算日期差】</b>
+<table>
+<tr>
+<td>
+</td><td>
+<input type="number" class="y" id="SY2">年
+<input type="number" class="d" id="SM2">月
+<input type="number" class="d" id="SD2">日（默认今天）
+</td></tr><tr>
+<td width="1em" valign="top"></td>
+<td><input type="number" class="y" id="SY3">年
+<input type="number" class="d" id="SM3">月
+<input type="number" class="d" id="SD3">日
+</td></tr><tr>
+<td>
+</td><td>
+<input type="button" value=" 相 差 " onclick="daydiff()">
+<span id="result2"></span>
+</td></tr></table>
+
+<br>
+<br>
+<b>【推算几天后的日期】</b>
+
+
+<table>
+<tr>
+<td>
+</td><td>
+<input type="number" class="y" id="SY" name="SY">年
+<input type="number" class="d" id="SM" name="SM">月
+<input type="number" class="d" id="SD" name="SD">日（默认今天）
+</td></tr><tr>
+<td width="1em">&nbsp;
+</td><td>
+<select id="pom">
+<option value="1">往后</option> 
+<option value="-1">往前</option>   
+</select>
+
+<input type="number" class="y" id="dnum">
+<select id="dtype">
+    <option value="1">天</option> 
+    <option value="2">星期</option>  
+    <option value="3">月</option>      
+    </select>   
+
+</td></tr><tr>
+<td>
+</td><td>
+<input type="button" value="   是   " onclick="dayadd()">     
+
+<span id="result1"></span>
+&nbsp;<span id="nongli"></span>
+</td></tr></table>
+
+
+<script type="text/javascript" src="https://time.org.cn/riqi/getdate.php?" +new="" date().gettime()=""></script>
+
+<br>
+		</div>
+	</div>
 </div>
 </div>
 
+
+<div style="margin-top:3rem;">
+
+<div class="_70lwti6ybep"></div>
+    <script type="text/javascript">
+        (window.slotbydup = window.slotbydup || []).push({
+            id: "u6856846",
+            container: "_70lwti6ybep",
+            async: true
+        });
+    </script>
+    <!-- 多条广告如下脚本只需引入一次 -->
+    <script type="text/javascript" src="https://cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer">
+    </script>
 <!-- 梦里幽境页尾 -->
 <footer class="footer text-center">
 <p class="text-center"><a href="https://www.mcfen.net/" target="_blank">官网首页&nbsp;
@@ -102,6 +158,13 @@
                    Copyright © 2014-2023 我的世界「梦里幽境」群组服 ALL Rights Reserved&nbsp;
 	</p>
 </footer>
+</div>
+
+
+
+
+
+
 
 <style>.cbox{
 margin: 4px 0 16px;
@@ -147,70 +210,33 @@ padding-left: 0;
 .footer-links li {
 display: inline;
 padding: 0 2px;
+
+body{background:#e7e7e7;margin:0;}
+body,table,div{font-size:1.1rem;line-height:2.0rem;}
+table{border-collapse:collapse;cursor:default;}
+input,select{height:2.4rem;font-size:1.2rem;}
+.y{width:7rem;}
+.d{width:4rem;}
+
 }</style>
-<script>$(function(){
-  var atou = function(str){
-    var res="";
-    if($("#conf-ascii").prop("checked")){
-      for(var i=0;i < str.length;i++){
-        res+="\\u"+("00"+str.charCodeAt(i).toString(16)).slice(-4);
-      }
-    }
-    else{
-      for(var i=0;i < str.length;i++){
-        var sc = str.charCodeAt(i);
-        if(sc<=127)
-          res+=str[i];
-        else
-          res+="\\u"+("00"+sc.toString(16)).slice(-4);
-      }
-    }
-    return res;
-  };
-  var utoa = function(str){
-    str=str.replace(/\\u/g,"%u");
-    return unescape(str);
-  };
 
-  $("#conv-i").click(function(){
-    $("#out").val(atou($("#src").val()));
-  });
-  $("#conv-o").click(function(){
-    $("#src").val(utoa($("#out").val()));
-  });
+  <style type="text/css">
+  /*正文样式*/
+  body{background-image: url("sinaimg/images/background.png")}
+  /*主体头部空*/
+  .clearfix{margin-top:25px;}
 
-  var changeevi=function(){
-    setTimeout(function() {
-      if($("#conf-auto").prop("checked"))
-        $("#out").val(atou($("#src").val()));
-    }, 1);
-  };
+  /*首行缩进2个字符*/
+  .Explain dd{text-indent: 2em;}
 
-  var changeevo=function(){
-    setTimeout(function() {
-      if($("#conf-auto").prop("checked"))
-      $("#src").val(utoa($("#out").val()));
-    }, 1);
-  };
-  $("#src").on("change",changeevi).on("paste",changeevi);
-  $("#out").on("change",changeevo).on("paste",changeevo);
-});
-
-
-</script>
-
-<style type="text/css">
-/*正文样式*/
-body{background-image: url("sinaimg/images/background.png")}
-</style>
-
-<style type="text/css">
-/* 为页尾统一 */
-.footer {
-	padding-top: 19px;
-	color: #777;
-	border-top: 1px solid #e5e5e5;
-}
+  /*表格文字缩小*/
+@media screen and (min-width: 760px){
+    .header_nav{display:none;}
+  }
+  @media screen and (max-width: 720px) { 
+    #f_list {right:0px;} 
+  }
+  .centent{min-height:500px;}
 </style>
 <!-- 梦里幽境编辑制作 仿冒不究 -->
 	
